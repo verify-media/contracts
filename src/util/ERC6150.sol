@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: CC0-1.0
 pragma solidity ^0.8.0;
 
-import "../interfaces/IERC6150.sol";
+import "../util/IERC6150.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 abstract contract ERC6150 is ERC721, IERC6150 {
