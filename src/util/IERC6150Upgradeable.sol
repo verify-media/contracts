@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import {IERC721EnumerableUpgradeable} from
-    "@openzeppelin-upgradeable/contracts/token/ERC721/extensions/IERC721EnumerableUpgradeable.sol";
+import {IERC721Enumerable} from
+    "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 
 // Note: the ERC-165 identifier for this interface is 0x897e2c73.
-interface IERC6150Upgradeable is IERC721EnumerableUpgradeable /* is IERC721, IERC165 */ {
+interface IERC6150Upgradeable is IERC721Enumerable /* is IERC721, IERC165 */ {
     /**
      * @notice Emitted when `tokenId` token under `parentId` is minted.
      * @param minter The address of minter

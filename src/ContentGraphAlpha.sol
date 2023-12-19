@@ -109,7 +109,7 @@ contract ContentGraph is OwnableUpgradeable, ERC6150Upgradeable {
     modifier onlyNodeOwner(bytes32 id, address account) {
         uint256 tokenId = nodes[id].token;
         if (tokenId != 0) {
-            _requireMinted(tokenId);
+            _requireOwned(tokenId);
             if (!(tokenId == 0) && !(account == ownerOf(tokenId))) {
                 revert NotAuthorised();
             }
@@ -146,7 +146,7 @@ contract ContentGraph is OwnableUpgradeable, ERC6150Upgradeable {
      * https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies
      */
     function initialize(string memory name_, string memory symbol_) public initializer {
-        __Ownable_init();
+        __Ownable_init(msg.sender);
         __ERC6150_init(name_, symbol_);
         allowListed = true;
     }

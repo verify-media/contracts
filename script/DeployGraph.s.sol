@@ -19,11 +19,12 @@ contract Deploy is Script {
     bytes32 hashedName = keccak256(bytes(registryName));
     bytes32 hashedVersion = keccak256(bytes(version));
     bytes32 typeHash = keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)");
+    address owner = vm.addr(admin_pk);
 
     function run() external {
         vm.startBroadcast(admin_pk);
-        ProxyAdmin identityAdmin = new ProxyAdmin();
-        ProxyAdmin graphAdmin = new ProxyAdmin();
+        ProxyAdmin identityAdmin = new ProxyAdmin(owner);
+        ProxyAdmin graphAdmin = new ProxyAdmin(owner);
         ContentGraph graph_ = new ContentGraph();
         IdentityRegistry registry_ = new IdentityRegistry();
 

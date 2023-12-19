@@ -74,7 +74,7 @@ contract ContentGraph is ERC6150Upgradeable {
         }
         uint256 tokenId = nodes[id].token;
         if (tokenId != 0) {
-            _requireMinted(tokenId);
+            _requireOwned(tokenId);
             if (identity.whoIs(account) != ownerOf(tokenId)) {
                 revert NotAuthorized();
             }

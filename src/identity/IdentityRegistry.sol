@@ -41,7 +41,7 @@ contract IdentityRegistry is OwnableUpgradeable, EIP712Upgradeable {
      * https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies
      */
     function initialize(string memory name_, string memory version_) public initializer {
-        __Ownable_init();
+        __Ownable_init(msg.sender);
         __EIP712_init(name_, version_);
     }
 

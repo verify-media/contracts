@@ -19,24 +19,24 @@ abstract contract ERC6150 is ERC721, IERC6150 {
     }
 
     function parentOf(uint256 tokenId) public view virtual override returns (uint256 parentId) {
-        _requireMinted(tokenId);
+        _requireOwned(tokenId);
         parentId = _parentOf[tokenId];
     }
 
     function childrenOf(uint256 tokenId) public view virtual override returns (uint256[] memory childrenIds) {
         if (tokenId > 0) {
-            _requireMinted(tokenId);
+            _requireOwned(tokenId);
         }
         childrenIds = _childrenOf[tokenId];
     }
 
     function isRoot(uint256 tokenId) public view virtual override returns (bool) {
-        _requireMinted(tokenId);
+        _requireOwned(tokenId);
         return _parentOf[tokenId] == 0;
     }
 
     function isLeaf(uint256 tokenId) public view virtual override returns (bool) {
-        _requireMinted(tokenId);
+        _requireOwned(tokenId);
         return _childrenOf[tokenId].length == 0;
     }
 
@@ -65,7 +65,7 @@ abstract contract ERC6150 is ERC721, IERC6150 {
     function _safeMintWithParent(address to, uint256 parentId, uint256 tokenId, bytes memory data) internal virtual {
         require(tokenId > 0, "ERC6150: tokenId is zero");
         if (parentId != 0) {
-            require(_exists(parentId), "ERC6150: parentId doesn't exist");
+            require(_ownerOf(parentId) != address(0), "ERC6150: parentId doesn't exist");
         }
 
         _beforeMintWithParent(to, parentId, tokenId);
@@ -81,7 +81,7 @@ abstract contract ERC6150 is ERC721, IERC6150 {
     }
 
     function _safeBurn(uint256 tokenId) internal virtual {
-        require(_exists(tokenId), "ERC6150: tokenId doesn't exist");
+        require(_ownerOf(tokenId) != address(0), "ERC6150: tokenId doesn't exist");
         require(isLeaf(tokenId), "ERC6150: tokenId is not a leaf");
 
         uint256 parent = _parentOf[tokenId];
