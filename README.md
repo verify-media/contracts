@@ -1,4 +1,6 @@
-# News Protocol Contracts • [![CI](https://github.com/transmissions11/foundry-template/actions/workflows/tests.yml/badge.svg)](https://github.com/transmissions11/foundry-template/actions/workflows/tests.yml)
+# Verify Contracts • [![CI](https://github.com/transmissions11/foundry-template/actions/workflows/tests.yml/badge.svg)](https://github.com/transmissions11/foundry-template/actions/workflows/tests.yml)
+
+See the [developer docs](https://docs.verifymedia.com) for more!
 
 ## Contributing
 
