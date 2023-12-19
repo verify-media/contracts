@@ -1,7 +1,6 @@
 /cache
 /node_modules
 /out
-/lib
 /broadcast/*
 node_modules
 .env
