@@ -1,0 +1,33 @@
+/cache
+/node_modules
+/out
+/lib
+/broadcast/*
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+.DS_Store
+lcov.info
+
+*/node_modules
+**/node_modules
+
+# dev
+.vscode
+.idea
+/.VSCodeCounter/
+
+# Hardhat files
+cache
+artifacts
+cache_hardhat
+/coverage
+coverage.json
+.coverage_artifacts
+.coverage_cache
+.coverage_contracts
+.gas-snapshot
+.openzeppelin

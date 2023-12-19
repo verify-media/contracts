@@ -1,0 +1,12 @@
+[profile.default]
+solc = "0.8.15"
+bytecode_hash = "none"
+optimizer_runs = 200
+gas_reports = ["*"]
+
+[rpc_endpoints]
+mumbai = "${MUMBAI_RPC_URL}"
+polygon = "${POLYGON_RPC_URL}"
+
+[profile.intense.fuzz]
+runs = 10000
